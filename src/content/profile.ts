@@ -3,9 +3,16 @@
  * Edit here; no layout changes required.
  */
 
-// Update once the production domain is live.
+/**
+ * Used for canonical URLs, the sitemap, and social share cards.
+ * Vercel injects its production domain at build time, so this resolves itself
+ * on deploy. Set NEXT_PUBLIC_SITE_URL to override with a custom domain.
+ */
+const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://acyuthgopalakrishnan.com";
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (vercelDomain ? `https://${vercelDomain}` : "http://localhost:3000");
 
 export const profile = {
   name: "Acyuth Gopalakrishnan",
